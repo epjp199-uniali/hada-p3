@@ -26,7 +26,15 @@ namespace proWeb
                     throw new Exception("El campo name no cumple las restricciones");
                 }
 
-                if ((int.Parse(text_amount.Text) < 1) || (int.Parse(text_amount.Text) > 9999))
+                if ((double.Parse(text_amount.Text) < 0.01) || (double.Parse(text_amount.Text) > 9999.99))
+                {
+                    outputMsg.Text = "El campo amount no cumple las restricciones";
+                    throw new Exception("El campo amount no cumple las restricciones");
+                }
+
+                String auxdate = text_date.Text;
+                
+                if((auxdate[2] != '/')|| (auxdate[5] != '/') || (auxdate[10] != ' ') || (auxdate[13] != ':') || (auxdate[16] != ':'))
                 {
                     outputMsg.Text = "El campo amount no cumple las restricciones";
                     throw new Exception("El campo amount no cumple las restricciones");
@@ -40,7 +48,7 @@ namespace proWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            outputMsg.Text = "";
         }
 
         protected void _Create(object sender, EventArgs e)
@@ -105,6 +113,11 @@ namespace proWeb
             //Realizar Read N
 
             outputMsg.Text = "Operacion Realizada";
+        }
+
+        protected void category(object sender, EventArgs e)
+        {
+
         }
     }
 }

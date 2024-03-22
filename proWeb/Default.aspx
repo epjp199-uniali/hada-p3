@@ -15,11 +15,11 @@
         </p>
         <p>
             Category &nbsp;
-            <asp:DropDownList ID="ddlOptions" runat="server" OnSelectedIndexChanged="ddlOptions_SelectedIndexChanged">
-                <asp:ListItem Text="Computing" Value="Computing"></asp:ListItem>
-                <asp:ListItem Text="Telephony" Value="Telephony"></asp:ListItem>
-                <asp:ListItem Text="Gaming" Value="Gaming"></asp:ListItem>
-                <asp:ListItem Text="Home appliances" Value="Home appliances"></asp:ListItem>
+            <asp:DropDownList ID="categorys" runat="server" OnSelectedIndexChanged="category">
+                <asp:ListItem Text="Computing" Value=0></asp:ListItem>
+                <asp:ListItem Text="Telephony" Value=1></asp:ListItem>
+                <asp:ListItem Text="Gaming" Value=2></asp:ListItem>
+                <asp:ListItem Text="Home appliances" Value=3></asp:ListItem>
             </asp:DropDownList>
         </p>
         <p>
