@@ -148,7 +148,7 @@ namespace library
 
                 return true;
             }
-            catch (SqlException ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("Products operation has failed. Error: {0}", ex.Message);
                 return false;

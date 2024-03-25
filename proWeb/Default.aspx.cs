@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Text.RegularExpressions;
 
 namespace proWeb
 {
@@ -15,9 +16,12 @@ namespace proWeb
         {
             try
             {
+                string auxdate = text_date.Text;
 
-                String auxdate = text_date.Text;
-                
+                string filterfloat = @"^\d+\.\d{2}$";
+
+                string filterdate = @"^\d{2}/\d{2}/\d{4} \d{2}:\d{2}:\d{2}$";
+
                 //Comprueba que el codigo es valido
                 if ((text_code.Text.Length < 1) || (text_code.Text.Length > 16))
                 {
@@ -37,13 +41,16 @@ namespace proWeb
                     throw new Exception("El campo amount no cumple las restricciones");
                 }
                 //Comprueba que el precio es valido
-                else if ((float.Parse(text_price.Text) < 0.01) || (float.Parse(text_price.Text) > 9999.99))
+                else if ((!Regex.IsMatch(text_price.Text, filterfloat)))
                 {
-                    outputMsg.Text = "El price amount no cumple las restricciones";
-                    throw new Exception("El price amount no cumple las restricciones");
+                    if ((float.Parse(text_price.Text) < 0.01) || (float.Parse(text_price.Text) > 9999.99))
+                    {
+                        outputMsg.Text = "El price amount no cumple las restricciones";
+                        throw new Exception("El price amount no cumple las restricciones");
+                    }    
                 }
                 //Comprueba que la fecha es valida(de manera estricta, es decir, su sintaxis)
-                else if((auxdate[2] != '/')|| (auxdate[5] != '/') || (auxdate[10] != ' ') || (auxdate[13] != ':') || (auxdate[16] != ':'))
+                else if ((!Regex.IsMatch(text_date.Text, filterdate)))
                 {
                     outputMsg.Text = "El campo date no cumple las restricciones";
                     throw new Exception("El campo date no cumple las restricciones");

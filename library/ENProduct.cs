@@ -124,7 +124,15 @@ namespace library
 
         public bool Delete()
         {
-            return new CADProduct().Delete(this);
+            CADProduct producto = new CADProduct();
+
+            if (producto.Read(this))
+            {
+                return new CADProduct().Delete(this);
+            }
+
+            return false;
+           
         }
 
         public bool ReadFirst()
