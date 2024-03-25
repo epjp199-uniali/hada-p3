@@ -130,8 +130,8 @@ namespace library
 
         public bool ReadFirst()
         {
-            CADProduct usuario = new CADProduct();
-            bool read = usuario.ReadFirst(this);
+            CADProduct cad = new CADProduct();
+            bool read = cad.ReadFirst(this);
             return read;
         }
 

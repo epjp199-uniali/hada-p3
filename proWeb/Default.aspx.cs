@@ -91,7 +91,7 @@ namespace proWeb
                 producto.date = DateTime.Parse(text_date.Text);
 
                 if (producto.Create())
-                { outputMsg.Text = "Usuario " + producto.codigo + " creado con exito."; }
+                { outputMsg.Text = "Producto " + producto.codigo + " creado con exito."; }
                 else { outputMsg.Text = "Operacion fallida"; }
 
             }
@@ -115,7 +115,7 @@ namespace proWeb
 
             if (producto.Update())
             {
-                outputMsg.Text = "Usuario " + producto.codigo + " actualizado con exito.";
+                outputMsg.Text = "Producto " + producto.codigo + " actualizado con exito.";
             }
             else outputMsg.Text = "Este usuario no existe en la B.D.";
 
@@ -129,7 +129,7 @@ namespace proWeb
 
             if (producto.Delete())
             {
-                outputMsg.Text = "Usuario " + producto.codigo + " borrado con exito.";
+                outputMsg.Text = "Producto " + producto.codigo + " borrado con exito.";
             }
             else outputMsg.Text = "Este usuario no existe en la B.D.";
 
@@ -151,7 +151,7 @@ namespace proWeb
                 text_price.Text = producto.precio.ToString();
                 text_date.Text = producto.date.ToString();
 
-                outputMsg.Text = "Usuario " + producto.codigo + " existe en la BD."; 
+                outputMsg.Text = "Producto " + producto.codigo + " existe en la BD."; 
             }
             else { outputMsg.Text = "Este usuario no existe en la B.D."; }
         }
@@ -168,9 +168,9 @@ namespace proWeb
                 text_price.Text = producto.precio.ToString();
                 text_date.Text = producto.date.ToString();
 
-                outputMsg.Text = "El primer usuario " + producto.codigo + " mostrado con éxito.";
+                outputMsg.Text = "El primer producto " + producto.codigo + " mostrado con éxito.";
             }
-            else outputMsg.Text = "La B.D. no contiene usuarios.";
+            else outputMsg.Text = "La B.D. no contiene producto.";
         }
 
         protected void _Read_P(object sender, EventArgs e)
@@ -186,8 +186,10 @@ namespace proWeb
                 categorys.SelectedIndex = producto.cat - 1;
                 text_price.Text = producto.precio.ToString();
                 text_date.Text = producto.date.ToString();
+
+                outputMsg.Text = "Mostrado el producto anterior";
             }
-            else outputMsg.Text = "No hay usuarios anteriores al indicado.";
+            else outputMsg.Text = "No hay producto anteriores al indicado.";
         }
 
         protected void _Read_N(object sender, EventArgs e)
@@ -203,8 +205,10 @@ namespace proWeb
                 categorys.SelectedIndex = producto.cat - 1;
                 text_price.Text = producto.precio.ToString();
                 text_date.Text = producto.date.ToString();
+
+                outputMsg.Text = "Mostrado el producto siguiente";
             }
-            else outputMsg.Text = "No hay usuarios posteriores al indicado.";
+            else outputMsg.Text = "No hay producto posteriores al indicado.";
         }
 
         protected void category(object sender, EventArgs e)

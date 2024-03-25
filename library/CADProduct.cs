@@ -44,7 +44,7 @@ namespace library
             }
             catch (SqlException ex)
             {
-                Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
+                Console.WriteLine("Products operation has failed. Error: {0}", ex.Message);
                 return false;
             }
             finally
@@ -88,7 +88,7 @@ namespace library
             }
             catch (SqlException ex)
             {
-                Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
+                Console.WriteLine("Products operation has failed. Error: {0}", ex.Message);
                 return false;
             }
             finally
@@ -123,7 +123,7 @@ namespace library
             }
             catch (SqlException ex)
             {
-                Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
+                Console.WriteLine("Products operation has failed. Error: {0}", ex.Message);
                 return false;
             }
             finally
@@ -151,7 +151,7 @@ namespace library
             }
             catch (SqlException ex)
             {
-                Console.WriteLine("Product operation has failed. Error: {0}", ex.Message);
+                Console.WriteLine("Products operation has failed. Error: {0}", ex.Message);
                 return false;
             }
             finally
@@ -191,7 +191,7 @@ namespace library
             catch (Exception ex)
             {
                 created = false;
-                Console.WriteLine("User operation has failed.Error: {0}", ex.Message);
+                Console.WriteLine("Products operation has failed.Error: {0}", ex.Message);
             }
             return created;
         }
@@ -229,7 +229,7 @@ namespace library
 
                 if(aux.codigo == "")
                 {
-                    throw new Exception("No existe un anterior");
+                    throw new Exception("No existe producto un anterior en la B.D.");
                 }
 
                 en.codigo = aux.codigo;
@@ -246,7 +246,7 @@ namespace library
             catch (Exception e)
             {
                 created = false;
-                Console.WriteLine("User operation has failed.Error: {0}", e.Message);
+                Console.WriteLine("Products operation has failed.Error: {0}", e.Message);
             }
             return created;
         }
@@ -286,7 +286,7 @@ namespace library
 
                 if (aux.codigo == "")
                 {
-                    throw new Exception("No existe un siguiente");
+                    throw new Exception("No existe producto un siguiente B.D.");
                 }
 
                 en.codigo = aux.codigo;
@@ -304,7 +304,7 @@ namespace library
             catch (Exception e)
             {
                 created = false;
-                Console.WriteLine("User operation has failed.Error: {0}", e.Message);
+                Console.WriteLine("Products operation has failed.Error: {0}", e.Message);
             }
             return created;
         }
