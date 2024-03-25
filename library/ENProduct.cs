@@ -84,6 +84,7 @@ namespace library
             CADProduct producto = new CADProduct();
             bool creado = false;
 
+            //Comprobamos que el producto no existe
             if (!producto.Read(this))
             {
                creado = producto.Create(this);
@@ -106,11 +107,9 @@ namespace library
             
             ENProduct aux = new ENProduct(codigo, nombre, cantidad, precio, cat, date);
 
-            // Comprobamos que la factura ya existe
+            // Comprobamos que el producto existe
             if (producto.Read(this))
             {
-                // Tras el read, THIS tiene los datos antiguos. Actualizamos:
-
                 this.codigo = aux.codigo;
                 this.nombre = aux.nombre;
                 this.cantidad = aux.cantidad;

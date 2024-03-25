@@ -82,7 +82,6 @@ namespace library
                     return false;
                 }
 
-                // Fin
                 connection.Close();
                 return true;
             }
