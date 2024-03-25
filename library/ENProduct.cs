@@ -18,10 +18,10 @@ namespace library
         }
         public string nombre
         {
-            get { return nombre; }
+            get { return name; }
             set
             {
-               nombre = value;
+               name = value;
             }
         }
         public int cantidad
@@ -34,10 +34,10 @@ namespace library
         }
         public float precio
         {
-            get { return precio; }
+            get { return price; }
             set
             {
-                precio = value;
+                price = value;
             }
         }
         public DateTime date
@@ -48,8 +48,6 @@ namespace library
                 creationDate = value;
             }
         }
-
-
 
         private string code;
         private string name;
@@ -88,9 +86,9 @@ namespace library
 
             if (!producto.Read(this))
             {
-                creado = producto.Create(this);
+               creado = producto.Create(this);
             }
-                
+ 
             return creado;
         }
 
@@ -101,5 +99,62 @@ namespace library
             return read;
         }
 
+        public bool Update()
+        {
+            CADProduct producto = new CADProduct();
+
+            
+            ENProduct aux = new ENProduct(codigo, nombre, cantidad, precio, cat, date);
+
+            // Comprobamos que la factura ya existe
+            if (producto.Read(this))
+            {
+                // Tras el read, THIS tiene los datos antiguos. Actualizamos:
+
+                this.codigo = aux.codigo;
+                this.nombre = aux.nombre;
+                this.cantidad = aux.cantidad;
+                this.precio = aux.precio;
+                this.cat = aux.cat;
+                this.date = aux.date;
+
+                return producto.Update(this);
+            }
+            else return false;
+        }
+
+        public bool Delete()
+        {
+            return new CADProduct().Delete(this);
+        }
+
+        public bool ReadFirst()
+        {
+            CADProduct usuario = new CADProduct();
+            bool read = usuario.ReadFirst(this);
+            return read;
+        }
+
+        public bool ReadPrev()
+        {
+            CADProduct product = new CADProduct();
+            ENProduct aux = new ENProduct(codigo, nombre, cantidad, precio, cat, date);
+            bool read = false;
+
+            if (product.ReadPrev(aux))
+                read = product.ReadPrev(this);
+            return read;
+        }
+
+        public bool ReadNext()
+        {
+            CADProduct product = new CADProduct();
+            ENProduct aux = new ENProduct(codigo, nombre, cantidad, precio, cat, date);
+            bool read = false;
+
+            if (product.ReadNext(aux))
+                read = product.ReadNext(this);
+            return read;
+        }
     }
 }

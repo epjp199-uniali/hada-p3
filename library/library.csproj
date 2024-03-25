@@ -42,15 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CADCategory.cs" />
     <Compile Include="CADProduct.cs" />
+    <Compile Include="ENCategory.cs" />
     <Compile Include="ENProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\proWeb\proWeb.csproj">
-      <Project>{9a58bf76-c230-4a55-9121-685de90d2c05}</Project>
-      <Name>proWeb</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
