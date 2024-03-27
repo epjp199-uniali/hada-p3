@@ -41,13 +41,10 @@ namespace proWeb
                     throw new Exception("El campo amount no cumple las restricciones");
                 }
                 //Comprueba que el precio es valido
-                else if ((!Regex.IsMatch(text_price.Text, filterfloat)))
+                else if (((!Regex.IsMatch(text_price.Text, filterfloat))) || (float.Parse(text_price.Text) > 9999.99))
                 {
-                    if ((float.Parse(text_price.Text) < 0.01) || (float.Parse(text_price.Text) > 9999.99))
-                    {
-                        outputMsg.Text = "El price amount no cumple las restricciones";
-                        throw new Exception("El price amount no cumple las restricciones");
-                    }    
+                        outputMsg.Text = "El campo price no cumple las restricciones";
+                        throw new Exception("El campo price no cumple las restricciones");  
                 }
                 //Comprueba que la fecha es valida(de manera estricta, es decir, su sintaxis)
                 else if ((!Regex.IsMatch(text_date.Text, filterdate)))
